@@ -30,17 +30,17 @@ In this project, we use **Qwen2.5-VL-7B** to generate the descriptions and manua
 📁 SLDPRT-NET
 |--- .gitattributes
 |--- README.md
-|--- batch_infer.py				 				# Inference from Qwen2.5-7B-VL to generate descriptions
+|--- batch_infer.py				 	# Inference from Qwen2.5-7B-VL to generate descriptions
 |--- encoder.swp				 				# Macro1 for parameterizing CAD models
 |--- decoder.swp				 				# Macro2 for reconstruct CAD models
 |--- sub_dataset.rar
-|   |--- Des_Text                				# Generated natural language descriptions
-|   |--- Encoder_Text            				# CAD commands sequences
-|   |--- image                   				# Rendered part images (multi-view)
-|   |--- model_sldprt            				# Original SolidWorks models (.sldprt)
-|   |--- model_step              				# Converted STEP models (.step)
+|   |--- Des_Text        # Generated natural language descriptions
+|   |--- Encoder_Text    # CAD commands sequences
+|   |--- image           # Rendered part images (multi-view)
+|   |--- model_sldprt    # Original SolidWorks models (.sldprt)
+|   |--- model_step      # Converted STEP models (.step)
 |
-|--- demo                        				# Demo samples from dataset
+|--- demo                # Demo samples from dataset
 |   |--- des_text
 |   |--- encoder_text
 |   |--- image
@@ -83,9 +83,9 @@ This subset includes the following components:
 We developed two tools, **encoder** and **decoder**, which together support the parameterization and reconstruction of the 13 types of CAD commands listed in the table below.
 | **Chamfer**       | **Sketch2D**       | **RefAxis**        | **Extrusion**      | **Revolution**       | **Linear Pattern**   | **HoleWzd**       |
 |-------------------|-------------------|-------------------|-------------------|---------------------|---------------------|-----------------------|
-| **Fillet**  | **Sketch3D**       | **RefPlane**       | **Cut-Extrusion**      | **Cut-Revolution**   | **Mirror Pattern** |                       |
+| **Fillet**  | **Sketch3D**       | **RefPlane**       | **Cut-Extrusion**      | **Cut-Revolution**   | **Mirror Pattern** | **----**  |
 
 **Encoder**: Losslessly converts `.sldprt` files into `.txt` files containing CAD commands and parameters, as shown in `Macro1`.
 **Decoder**: Reconstructs `.sldprt` files from the parameterized `encoder_text` in `.txt` format, as shown in `Macro2`.
 
-Click here to watch a video demonstrating the correct usage of the tools, as well as the parameterization and reconstruction process using the demo.
+Click [here](https://drive.google.com/file/d/1XW0dvzzBQb-7JnHoJG7ZGDoZaW7Ujzd9/view?usp=sharing) to watch a video demonstrating the correct usage of the tools, as well as the parameterization and reconstruction process using the demo.
