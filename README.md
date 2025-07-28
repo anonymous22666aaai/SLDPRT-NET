@@ -83,7 +83,7 @@ This subset includes the following components:
 We developed two tools, **encoder** and **decoder**, which together support the parameterization and reconstruction of the 13 types of CAD commands listed in the table below.
 | **Chamfer**       | **Sketch2D**       | **RefAxis**        | **Extrusion**      | **Revolution**       | **Linear Pattern**   | **HoleWzd**       |
 |-------------------|-------------------|-------------------|-------------------|---------------------|---------------------|-----------------------|
-| **Fillet**  | **Sketch3D**       | **RefPlane**       | **Cut-Extrusion**      | **Cut-Revolution**   | **Mirror Pattern** | **--------**  |
+| **Fillet**  | **Sketch3D**       | **RefPlane**       | **Cut-Extrusion**      | **Cut-Revolution**   | **Mirror Pattern** | **-----------**  |
 
 **Encoder**: Losslessly converts `.sldprt` files into `.txt` files containing CAD commands and parameters, as shown in `Macro1`.
 **Decoder**: Reconstructs `.sldprt` files from the parameterized `encoder_text` in `.txt` format, as shown in `Macro2`.
