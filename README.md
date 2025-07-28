@@ -88,4 +88,19 @@ We developed two tools, **encoder** and **decoder**, which together support the 
 **Encoder**: Losslessly converts `.sldprt` files into `.txt` files containing CAD commands and parameters, as shown in `Macro1`.
 **Decoder**: Reconstructs `.sldprt` files from the parameterized `encoder_text` in `.txt` format, as shown in `Macro2`.
 
+
+> ✅ **Tools Environment**:  
+These macros are developed and executed in **SolidWorks 2025** using the built-in **VBA environment**.
+
+> 📦 **Required References** (as shown in the screenshot):
+- Visual Basic for Applications  
+- SolidWorks 2025 Extensibility Type Library  
+- OLE Automation  
+- SldWorks 2025 Type Library  
+- SOLIDWORKS 2025 Constant Type Library  
+- SOLIDWORKS 2025 Commands Type Library  
+- **SOLIDWORKS Utilities 2015 Type Library**
+
+> ⚠️ Make sure these references are checked in the VBA editor (via `Tools > References`) to ensure successful execution.
+
 Click [here](https://drive.google.com/file/d/1XW0dvzzBQb-7JnHoJG7ZGDoZaW7Ujzd9/view?usp=sharing) to watch a video demonstrating the correct usage of the tools, as well as the parameterization and reconstruction process using the demo.
