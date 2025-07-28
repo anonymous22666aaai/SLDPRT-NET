@@ -30,17 +30,17 @@ In this project, we use **Qwen2.5-VL-7B** to generate the descriptions and manua
 📁 SLDPRT-NET
 |--- .gitattributes
 |--- README.md
-|--- batch_infer.py				 	# Inference from Qwen2.5-7B-VL to generate descriptions
-|--- encoder.swp				 				# Macro1 for parameterizing CAD models
-|--- decoder.swp				 				# Macro2 for reconstruct CAD models
+|--- batch_infer.py       # Inference from Qwen2.5-7B-VL to generate descriptions
+|--- encoder.swp          # Macro1 for parameterizing CAD models
+|--- decoder.swp          # Macro2 for reconstruct CAD models
 |--- sub_dataset.rar
-|   |--- Des_Text        # Generated natural language descriptions
-|   |--- Encoder_Text    # CAD commands sequences
-|   |--- image           # Rendered part images (multi-view)
-|   |--- model_sldprt    # Original SolidWorks models (.sldprt)
-|   |--- model_step      # Converted STEP models (.step)
+|   |--- Des_Text         # Generated natural language descriptions
+|   |--- Encoder_Text     # CAD commands sequences
+|   |--- image            # Rendered part images (multi-view)
+|   |--- model_sldprt     # Original SolidWorks models (.sldprt)
+|   |--- model_step       # Converted STEP models (.step)
 |
-|--- demo                # Demo samples from dataset
+|--- demo                 # Demo samples from dataset
 |   |--- des_text
 |   |--- encoder_text
 |   |--- image
