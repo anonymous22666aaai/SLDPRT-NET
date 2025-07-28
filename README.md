@@ -61,6 +61,7 @@ In this project, we use **Qwen2.5-VL-7B** to generate the descriptions and manua
 - NumPy: `numpy==1.24.4`
 
 ``` python
+`batch_infer.py`
 # Inference launch command
 # --start-id and --end-id define the range of file IDs to process
 
