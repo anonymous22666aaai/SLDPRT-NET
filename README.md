@@ -39,7 +39,8 @@ In this project, we use **Qwen2.5-VL-7B** to generate the descriptions and manua
 |   |--- image            # Rendered part images (multi-view)
 |   |--- model_sldprt     # Original SolidWorks models (.sldprt)
 |   |--- model_step       # Converted STEP models (.step)
-|
+|--- qwen2.5-7B.yaml      # Configuration for qwen2.5-7B fine-tuning
+|--- qwen2.5-7B-vl.yaml   # Configuration for qwen2.5-7B-vl fine-tuning
 |--- demo                 # Demo samples from dataset
 |   |--- des_text
 |   |--- encoder_text
@@ -68,6 +69,22 @@ batch_infer.py:
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 accelerate launch --mixed_precision="bf16" batch_infer.py --start-id 000000 --end-id 242606
 ```
 ### Baseline
+In the baseline experiments, we fine-tuned and evaluated two models: the text-only Qwen2.5-7B and the multimodal Qwen2.5-7B-VL, comparing their performance after training. The fine-tuning process used a 50,000-sample subset of the SldprtNet dataset, which can be downloaded [here](https://drive.google.com/file/d/1iTzWHkMr797o8eUfB2IGAP3CJYXGyMJf/view?usp=drive_link). The files qwen2.5-7B.yaml and qwen2.5-7B-vl.yaml are the configuration files used during fine-tuning. For Qwen2.5-7B, we followed the fine-tuning procedure from the [Axolotl library](https://docs.axolotl.ai/), while for Qwen2.5-7B-VL, we adopted the approach from the [2U1 project](https://github.com/2U1/Qwen2-VL-Finetune).
+
+Below are the fine-tuned models:
+[wen2.5-7B]()
+[Qwen2.5-7B-VL]()
+
+The performance evaluation results for these two models are as follows:
+| **Metric**       | **Qwen2.5-7B**       | **Qwen2.5-7B-VL**        |
+|-------------------|-------------------|-------------------|
+| **Exact Match Score**  | **0.0058**       | **0.0099**       |
+| **BLEU Score**  | **97.1827**       | **97.9309**       |
+| **Test Samples**  | **3644**       | **3644**       |
+| **Command-Level F1**  | **0.3247**       | **0.3670**       |
+| **Tolerance Accuracy**  | **0.5016**       | **0.4630**       |
+| **Partial Match Rate**  | **0.5554**       | **0.6162**       |
+
 
 ## Dataset
 <img width="4135" height="615" alt="Datasetshow" src="https://github.com/user-attachments/assets/1d81ca23-5d14-4712-bd30-e2c95ccf917d" />
