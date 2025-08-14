@@ -72,8 +72,8 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 accelerate launch --mixed_precision="bf16" 
 In the baseline experiments, we fine-tuned and evaluated two models: the text-only Qwen2.5-7B and the multimodal Qwen2.5-7B-VL, comparing their performance after training. The fine-tuning process used a 50,000-sample subset of the SldprtNet dataset, which can be downloaded [here](https://drive.google.com/file/d/1iTzWHkMr797o8eUfB2IGAP3CJYXGyMJf/view?usp=drive_link). The files qwen2.5-7B.yaml and qwen2.5-7B-vl.yaml are the configuration files used during fine-tuning. For Qwen2.5-7B, we followed the fine-tuning procedure from the [Axolotl](https://docs.axolotl.ai/) library, while for Qwen2.5-7B-VL, we adopted the approach from the [2U1](https://github.com/2U1/Qwen2-VL-Finetune).
 
 Below are the fine-tuned models:
-- [Qwen2.5-7B]()
-- [Qwen2.5-7B-VL]()
+- [Qwen2.5-7B-SldprtNet]()
+- [Qwen2.5-7B-VL-SldprtNet]()
 
 The performance evaluation results for these two models are as follows:
 | **Metric**       | **Qwen2.5-7B**       | **Qwen2.5-7B-VL**        |
