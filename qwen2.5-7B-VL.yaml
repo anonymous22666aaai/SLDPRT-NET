@@ -1,0 +1,87 @@
+base_model: /path/to/Qwen2.5-VL-7B-Instruct
+processor_type: AutoProcessor
+
+# these 3 lines are needed for now to handle vision chat templates w images
+skip_prepare_dataset: true
+remove_unused_columns: false
+sample_packing: false
+
+chat_template: qwen2_vl
+datasets:
+  - path: /path/to/train_dataset.jsonl
+    type: chat_template
+    split: train[:1%]
+    field_messages: messages
+dataset_prepared_path: last_run_prepared
+val_set_size: 0.1
+output_dir: /path/to/outputs/out
+
+adapter: lora
+lora_model_dir: 
+load_in_4bit: false
+load_in_8bit: true
+
+sequence_len: 4096
+pad_to_sequence_len: false
+
+lora_r: 8
+lora_alpha: 8
+lora_dropout: 0.05
+lora_target_modules: 'model.language_model.layers.[\d]+.(mlp|cross_attn|self_attn).(up|down|gate|q|k|v|o)_proj'
+
+wandb_project: SldprtNet
+wandb_entity: sikaili205-unc
+wandb_watch:
+wandb_name: Qwen2.5-VL-7B-Instruct
+wandb_log_model:
+
+gradient_accumulation_steps: 4  # Reduced from 4 to 1
+micro_batch_size: 1
+num_epochs: 1
+optimizer: adamw_bnb_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+bf16: true  # Changed from auto to true for better memory efficiency
+fp16:
+tf32: false
+
+gradient_checkpointing: true
+logging_steps: 1
+flash_attention: true
+eager_attention:
+
+warmup_ratio: 0.1
+evals_per_epoch: 1
+# eval_steps: 50
+saves_per_epoch: 1
+# save_strategy: best
+weight_decay: 0.0
+
+image_size: 224
+image_resize_algorithm: bilinear
+
+# deepspeed: deepspeed_configs/zero2.json
+
+plugins:
+  - axolotl.integrations.liger.LigerPlugin
+liger_rope: true
+liger_rms_norm: true
+liger_glu_activation: true
+liger_layer_norm: true
+liger_fused_linear_cross_entropy: true
+
+# fsdp_version: 2
+# fsdp_config:
+#   offload_params: true
+#   cpu_ram_efficient_loading: true
+#   auto_wrap_policy: TRANSFORMER_BASED_WRAP
+#   transformer_layer_cls_to_wrap: Qwen3DecoderLayer
+#   state_dict_type: FULL_STATE_DICT
+#   reshard_after_forward: true
+
+
+# sequence_parallel_degree: 2
+# heads_k_stride: 1
+# ring_attn_func:
+# save_first_step: true  # uncomment this to validate checkpoint saving works with your config
