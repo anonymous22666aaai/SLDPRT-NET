@@ -74,6 +74,8 @@ In the baseline experiments, we fine-tuned and evaluated two models: the text-on
 Below are the fine-tuned models:
 - [Qwen2.5-7B-SldprtNet]()
 - [Qwen2.5-7B-VL-SldprtNet]()
+⚠️ Since the paper is currently in the double-blind review stage, we plan to fully open-source both models on Hugging Face after the paper is accepted.
+
 
 The performance evaluation results for these two models are as follows:
 | **Metric**       | **Qwen2.5-7B**       | **Qwen2.5-7B-VL**        |
